@@ -40,10 +40,12 @@ for i in range(len(preiNumOfTerm)):
                 iFlag +=1 
             break
 
-if iFlag == 0:
+if iFlag == 0: 
+    #iL보다 큰 약수를 다 돌았지만 정수 a값이 안나온 경우는 flag가 0이다. 그래서 -1을 출력
     result.append(-1)
     print(*result, sep=' ')
 else : 
+    #a값이 나오긴 했으나 100개 이상이면 안되어서 if문으로 한 번 더 점검해준다.
     if len(result)>100:
         print(-1)
     else: print(*result, sep=' ')
