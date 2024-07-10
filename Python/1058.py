@@ -26,6 +26,7 @@ def floyd(iN):
                 if i==j :
                     continue
                 if friend[i][j] =='Y' or (friend[i][k]=='Y' and friend[k][j]=='Y'):
+                    #친구이거나, k를 통해 한다리 건너 친구이거나!
                     iDistanceTable[i][j]=1
     
     return iDistanceTable
