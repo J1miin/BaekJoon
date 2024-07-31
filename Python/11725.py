@@ -12,7 +12,7 @@ for _ in range(iVerNum-1):
 
 
 def dfs(startVer):
-    stack = [startVer]  #스택에 노드와 촌수를 둘 다 동시에 가져가는 접근!
+    stack = [startVer]  
     while stack:
         node = stack.pop()
         print("node",node)
@@ -22,7 +22,6 @@ def dfs(startVer):
                 if iGraph[node][i] == 1 and i not in iVisited:
                     print("i",i)
                     return i
-
  
 iVisited = set()  # 집합이용 
 
