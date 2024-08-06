@@ -28,10 +28,15 @@ iKmok=iSize
 if iK==iSize :
     iCutCnt=0
 else :
-    while (iKmokCum != iK) :
+    while (iK) :
         iKmok = iKmok // 2 
-        iKmokCum += iKmok
-        iCutCnt +=1
-        print(f"iKmok = {iKmok}, iKmokCUm = {iKmokCum} iCutCnt ={iCutCnt}")
+        if iK >= iKmok :
+            iK -= iKmok
+            iCutCnt +=1
+            #print(iK, iKmok, iCutCnt)
+        else : 
+            iCutCnt +=1
+            #print("else ans")
+        
 
 print(iSize, iCutCnt)
