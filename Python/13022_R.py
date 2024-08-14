@@ -39,6 +39,7 @@ if sInput[0]=='w':
         elif sInput[j]=='f' and  iWordCountArr[3]<iWordCountArr[2]: #순서대로 있어야하므로
             iWordCountArr[3]+=1
             if j == len(sInput)-1 or sInput[j+1]!='f':
+                #f는 항상 마지막에 올거니까 제일끝일 때나, f의 다음이 w가 아닐 때(그러면 순서가 다른거니까)
                 #wwolfolf 이런 경우 방지
                 if iWordCountArr[0] == iWordCountArr[1] and iWordCountArr[2]==iWordCountArr[1] and iWordCountArr[3]==iWordCountArr[0]: #동일 개수인지 점검
                     iFlag = 0
