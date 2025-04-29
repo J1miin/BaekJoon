@@ -3,40 +3,51 @@
 #include <queue>
 #include<cstdlib> 
 using namespace std;
-int main(){
-    int x = -123;
-    
-    cout<<endl<<endl;
-    int ans = 0;
-    queue<int> q;
-    bool bFlag = false;
-    while(true){
-        if (x<10 && x>=0){
-            q.push(x);
-            break;
+#include <queue>
+#include <climits>
+
+class Solution {
+public:
+    int reverse(int x) {
+        long long ans = 0;
+        std::queue<int> q;
+        bool bFlag = false;
+        long long lx = x; 
+
+        if (lx < 0) {
+            bFlag = true;
+            lx = -lx; //음수 오버플로우 방지
         }
-        if (x<0){
-            x=abs(x);
-            bFlag=true;
+
+        while (true) {
+            if (lx < 10) {
+                q.push(lx);
+                break;
+            }
+            q.push(lx % 10);
+            lx /= 10;
         }
-        q.push(x%10);
-        cout<<x%10<<endl;
-        x/=10;
-        cout<<"x/=10 한 후 x ="<<x<<endl;
+
+        if (q.size() > 10) return 0;
+
+        int iSize = q.size() - 1;
+        while (!q.empty()) {
+            long long tmp = q.front();
+            q.pop();
+            for (int i = iSize; i > 0; --i) {
+                if (tmp > LLONG_MAX / 10) return 0;
+                tmp *= 10;
+            }
+            if (ans > LLONG_MAX - tmp) return 0;
+            ans += tmp;
+            iSize--;
+        }
+
+        if (bFlag) {
+            ans = -ans;
+        }
+
+        if (ans < INT_MIN || ans > INT_MAX) return 0;
+        return (int)ans;
     }
-    
-    if (q.size()>=10) return 0;
-    cout<<q.size()<<endl;
-    int iSize = q.size()-1;
-    while(!q.empty()){
-        int tmp = q.front();
-        q.pop();
-        for (int i=iSize;i>0;--i){
-            tmp *=10;
-        }
-        iSize --;
-        ans += tmp;
-    }
-    
-    cout<<ans<<endl;
-}
+};
