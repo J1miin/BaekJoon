@@ -5,8 +5,9 @@
 using namespace std;
 /*alphanumeric은 숫자와 알파벳을 포함한다.
 예상 시간복잡도 : 
-find - O(logN)
+find - O(N)이다.
 erase - O(N)
+>> trim 에서 O(N^2)
 for문 - O(N)
 >> 45 ms가 나왔다아... ㄷㄷ;; 
 */
