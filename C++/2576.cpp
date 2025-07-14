@@ -11,6 +11,7 @@ int main(){
     bool check = false;
     for (int i=0;i<7;++i){
         cin>>iTmp;
+        if (iTmp % 2 != 0 ){
             check = true;
             iSum+=iTmp;
             iMin = min(iMin,iTmp);
